@@ -5,7 +5,7 @@ print(a + b)  # 13
 print(a // b)  # 3（整除）
 print(a ** b)  # 1000（幂）
 
-# 逻辑运算
+# 逻辑
 x = True
 y = False
 print(x and y)  # False

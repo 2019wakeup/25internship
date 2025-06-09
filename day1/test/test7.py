@@ -1,4 +1,4 @@
-# 简单装饰器
+#简单装饰器
 def my_decorator(func):
     def wrapper():
         print("Before function")
@@ -21,7 +21,7 @@ def repeat(n):
         return wrapper
     return decorator
 
-@repeat(3)
+@repeat(2)
 def greet(name):
     print(f"Hi, {name}!")
 

@@ -1,8 +1,8 @@
-# 写文件
+# 写
 with open("example.txt", "w") as f:
     f.write("Hello, Python!\n")
 
-# 读文件
+# 读
 with open("example.txt", "r") as f:
     content = f.read()
     print(content)
