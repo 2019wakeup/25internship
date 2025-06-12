@@ -48,4 +48,4 @@ for class_name in os.listdir(dataset_dir):
             dst = os.path.join(val_dir, img)
             shutil.move(src, dst)
 
-shutil.rmtree(class_path)
+        shutil.rmtree(class_path)
