@@ -67,12 +67,22 @@ day2/
 │   ├── 常用激活函数及用法.md      # 激活函数详解
 │   ├── 多尺度注意力机制.md        # 注意力机制原理
 │   └── FPN.md                   # 特征金字塔网络
-├── alexnet/                 # AlexNet网络学习
-├── model.py                 # 自定义CNN模型定义
-├── train.py                 # 完整训练脚本
-├── train_GPU_1.py          # GPU加速训练版本1
-├── train_GPU_2.py          # GPU加速训练版本2
-├── test.py                 # 模型测试脚本
+├── alexnet/                 # AlexNet完整实现项目
+│   ├── model.py             # AlexNet网络架构定义
+│   ├── train.py             # 训练脚本
+│   ├── test.py              # 测试脚本
+│   └── README.md            # AlexNet项目详细文档
+├── classificationTest/      # 分类训练测试代码
+│   ├── model.py             # 简单CNN模型
+│   ├── train.py             # 基础训练脚本
+│   ├── train_GPU_1.py       # GPU训练版本1
+│   ├── train_GPU_2.py       # GPU训练版本2
+│   └── test.py              # 测试脚本
+├── convolutionTest/         # 卷积操作测试代码
+│   ├── testconv1.py         # 卷积操作测试1
+│   ├── testconv2.py         # 卷积操作测试2
+│   └── testpool.py          # 池化操作测试
+├── conv_logs/              # 卷积测试相关日志
 ├── model_save/             # 训练模型保存目录
 └── dataset_chen/           # CIFAR-10数据集
 ```
@@ -100,8 +110,8 @@ day2/
 
 ### 实践项目
 
-#### CIFAR-10图像分类项目
-**核心文件**: `model.py`, `train.py`, `train_GPU_*.py`
+#### 分类训练测试项目
+**核心文件**: `classificationTest/model.py`, `classificationTest/train.py`, `classificationTest/train_GPU_*.py`
 
 这是一个完整的深度学习项目，实现了：
 - **自定义CNN架构**: 3层卷积 + 2层全连接的经典结构
@@ -127,6 +137,44 @@ class Chen(nn.Module):
             nn.Linear(1024, 64),               # 全连接层1
             nn.Linear(64, 10)                  # 输出层
         )
+```
+
+#### 卷积操作学习项目
+**核心文件**: `convolutionTest/testconv1.py`, `convolutionTest/testconv2.py`, `convolutionTest/testpool.py`
+
+这是一个深度学习基础操作学习项目，实现了：
+- **卷积操作测试**: 不同卷积核大小、步长、填充的效果验证
+- **池化操作测试**: 最大池化、平均池化等操作的理解和实践
+- **参数影响分析**: 探索不同参数设置对特征提取的影响
+- **可视化验证**: 通过实例验证理论知识的正确性
+
+#### AlexNet CIFAR-10分类项目
+**核心文件**: `alexnet/model.py`, `alexnet/train.py`, `alexnet/test.py`
+
+这是一个完整的AlexNet经典网络实现项目，实现了：
+- **经典AlexNet架构**: 5层卷积 + 3层全连接的经典深度学习架构
+- **CIFAR-10适配**: 针对32x32像素图像的网络结构优化
+- **完整训练流程**: 数据增强、优化器配置、学习率调度
+- **性能监控**: TensorBoard可视化训练过程和性能指标
+- **模型管理**: 最佳模型保存、定期检查点、模型加载
+
+**网络特点**:
+```python
+# AlexNet架构核心
+特征提取部分：
+- Conv1: 3→96, 5x5, ReLU + LRN + MaxPool
+- Conv2: 96→256, 3x3, ReLU + LRN + MaxPool  
+- Conv3: 256→384, 3x3, ReLU
+- Conv4: 384→384, 3x3, ReLU
+- Conv5: 384→256, 3x3, ReLU + MaxPool
+
+分类器部分：
+- FC1: 4096神经元, Dropout(0.5), ReLU
+- FC2: 4096神经元, Dropout(0.5), ReLU
+- FC3: 10神经元（输出层）
+
+模型参数: 约3700万个
+预期准确率: 75-85%
 ```
 
 ## Day3 项目概况
