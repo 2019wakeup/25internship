@@ -252,3 +252,84 @@ class ImageTxtDataset(data.Dataset):
 
 *更新时间: 2025年6月*
 
+## Day4 项目概况
+
+Day4是本实习项目的第四阶段，主要聚焦于**Vision Transformer (ViT)**和**自定义数据集训练**的学习与实践。这一阶段深入探讨了Transformer在计算机视觉领域的应用，以及如何处理和训练私有数据集。
+
+### 核心内容
+- **Transformer理论**: 自注意力机制、多头注意力、位置编码等核心概念
+- **ViT实践**: Vision Transformer的完整实现与训练
+- **数据集处理**: 自定义数据集的预处理和加载
+- **模型训练**: GPU加速训练、模型保存与加载
+- **性能优化**: 训练策略优化、模型参数调优
+
+### 项目结构
+```
+day4/
+├── vit/                    # Vision Transformer实现
+│   ├── vit.py              # ViT模型架构定义
+│   ├── train.py            # 基础训练脚本
+│   ├── train_gpu.py        # GPU训练脚本
+│   ├── model_save/         # 模型保存目录
+│   └── logs_train/         # 训练日志
+├── prepare_dataset/        # 数据集预处理模块
+├── train_private_dataset/  # 私有数据集训练
+└── transformer_learning_notes.md  # Transformer学习笔记
+```
+
+### 核心笔记文档
+
+#### [Transformer与ViT学习笔记](day4/transformer_learning_notes.md)
+**位置**: `day4/transformer_learning_notes.md`
+
+这是一份全面的Transformer和Vision Transformer学习指南，包含：
+- **Transformer基础概念**: 
+  - Self-Attention机制原理
+  - Multi-Head Attention实现
+  - Feed Forward Network设计
+  - Layer Normalization应用
+  - Residual Connection作用
+- **Vision Transformer架构**:
+  - 图像分块（Patch Embedding）技术
+  - 位置编码设计与实现
+  - 分类头设计策略
+- **实现要点**:
+  - Patch Embedding实现细节
+  - Transformer Block构建
+  - 分类器设计与实现
+
+### 实践项目
+
+#### Vision Transformer实现
+**核心文件**: `vit/vit.py`, `vit/train_gpu.py`
+
+这是一个完整的ViT实现项目，包含：
+```python
+class ViT(nn.Module):
+    def __init__(self, *, image_size, patch_size, num_classes, dim, depth, heads, mlp_dim):
+        # image_size: 输入图像尺寸
+        # patch_size: 图像分块大小
+        # num_classes: 分类数量
+        # dim: 模型维度
+        # depth: Transformer层数
+        # heads: 注意力头数
+        # mlp_dim: 前馈网络维度
+```
+
+**技术特点**:
+- **模块化设计**: 清晰的模块划分，便于理解和修改
+- **灵活配置**: 支持不同图像尺寸和模型参数的配置
+- **GPU加速**: 完整的GPU训练支持
+- **性能监控**: TensorBoard集成的训练过程可视化
+
+#### 私有数据集训练
+**目录**: `prepare_dataset/`, `train_private_dataset/`
+
+这是一个自定义数据集处理和训练项目，实现了：
+- **数据预处理**: 标准化的数据预处理pipeline
+- **数据加载**: 自定义Dataset类的实现
+- **训练流程**: 完整的模型训练和验证流程
+- **性能优化**: 训练参数优化和模型调优
+
+*更新时间: 2025年6月*
+
