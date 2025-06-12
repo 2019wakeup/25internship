@@ -10,7 +10,7 @@ class ImageTxtDataset(data.Dataset):
         for line in lines:
             img_path, label = line.split()
             label = int(label.strip())
-            # img_path = os.path.join(self.data_dir, self.folder_name, img_path)
+            #img_path = os.path.join(self.data_dir, self.folder_name, img_path)
             self.labels.append(label)
             self.imgs_path.append(img_path)
 

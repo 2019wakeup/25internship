@@ -7,9 +7,9 @@ import random
 random.seed(42)
 
 # 数据集路径
-dataset_dir = r'D:\Desktop\tcl\dataset\image2'  # 替换为你的数据集路径
-train_dir = r'D:\Desktop\tcl\dataset\image2\train'  # 训练集输出路径
-val_dir = r'D:\Desktop\tcl\dataset\image2\val'  # 验证集输出路径
+dataset_dir = '/Users/luhonggan/Desktop/25internship/25internship/dataset_chen'  # 数据集路径
+train_dir = '/Users/luhonggan/Desktop/25internship/25internship/dataset_chen/train'  # 训练集输出路径
+val_dir = '/Users/luhonggan/Desktop/25internship/25internship/dataset_chen/val'  # 验证集输出路径
 
 # 划分比例
 train_ratio = 0.7
