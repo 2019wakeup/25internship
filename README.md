@@ -226,5 +226,113 @@ class Chen(nn.Module):
    ls day2_notes/
    ```
 
+## Day3 项目概况
+
+Day3是本实习项目的第三阶段，主要聚焦于**自定义数据集处理**和**激活函数深入理解**的学习与实践。这一阶段从数据预处理到模型组件的深入学习，构建了完整的数据处理和网络设计技能体系。
+
+### 核心内容
+- 📊 **自定义数据集处理**: 数据集划分、路径管理、自定义Dataset类设计
+- 🔧 **数据预处理流程**: 从原始数据到训练就绪的完整数据处理pipeline
+- ⚡ **激活函数实践**: ReLU、Sigmoid等激活函数的可视化和应用
+- 📈 **数据可视化**: TensorBoard在激活函数效果展示中的应用
+- 🎯 **CIFAR-100数据集**: 100类图像分类数据集的处理和应用
+
+### 项目结构
+```
+day3/
+├── private_dataset/              # 📁 自定义数据集处理模块
+│   ├── deal_with_datasets.py     # 🔄 数据集划分脚本
+│   ├── prepare.py                # 📝 路径文件生成脚本  
+│   └── dataset.py                # 🎯 自定义Dataset类定义
+├── Images/                       # 🖼️ CIFAR-100图像数据集（100个类别）
+│   ├── sunflower/               # 🌻 向日葵类别
+│   ├── tiger/                   # 🐅 老虎类别
+│   ├── butterfly/               # 🦋 蝴蝶类别
+│   └── ...                      # 其他97个类别
+├── activate_function/            # ⚡ 激活函数学习模块
+│   └── function.py              # 📊 激活函数实践与可视化
+└── day3_notes.md                # 📋 当日学习笔记
+```
+
+## 🎯 重要学习资料
+
+### 📖 核心笔记文档
+
+#### 1. [Day3学习笔记](day3/day3_notes.md)
+**位置**: `day3/day3_notes.md` | **大小**: 约8KB
+
+这是一份**自定义数据集处理和激活函数学习指南**，包含：
+- 📊 **数据集处理完整流程**: 从原始数据到训练就绪的全套处理方案
+- 🔧 **自定义Dataset类设计**: PyTorch Dataset接口的灵活实现
+- ⚡ **激活函数深入理解**: ReLU、Sigmoid等激活函数的原理与应用
+- 📈 **可视化技术**: TensorBoard在模型调试中的实际应用
+- 🎯 **CIFAR-100数据集**: 100类图像分类任务的完整处理方案
+
+### 🚀 实践项目
+
+#### 自定义数据集处理项目
+**核心文件**: `deal_with_datasets.py`, `prepare.py`, `dataset.py`
+
+这是一个**完整的数据预处理项目**，实现了：
+- 🔄 **智能数据划分**: 7:3比例的训练/验证集科学划分
+- 📝 **路径管理系统**: 自动生成train.txt和val.txt路径文件
+- 🎯 **灵活Dataset类**: 支持任意格式数据集的高效加载
+- 🖼️ **图像预处理**: RGB转换、标准化等完整预处理pipeline
+- 📁 **目录结构管理**: 自动创建和维护数据集目录结构
+
+**技术特点**:
+```python
+# 数据集划分核心代码
+train_images, val_images = train_test_split(images, train_size=0.7, random_state=42)
+
+# 自定义Dataset类
+class ImageTxtDataset(data.Dataset):
+    def __init__(self, txt_path: str, folder_name, transform):
+        # 从txt文件加载图像路径和标签
+        # 支持灵活的数据变换pipeline
+```
+
+#### 激活函数可视化项目
+**核心文件**: `activate_function/function.py`
+
+这是一个**激活函数学习和可视化项目**，实现了：
+- ⚡ **多种激活函数**: ReLU、Sigmoid等主流激活函数实现
+- 👁️ **实时可视化**: TensorBoard展示激活前后的图像效果
+- 🔧 **网络设计**: 自定义神经网络类的激活函数应用
+- 📊 **效果对比**: 不同激活函数在实际数据上的表现分析
+
+### Day3 - 自定义数据集与激活函数
+
+1. **数据集处理实践**
+   ```bash
+   cd day3/private_dataset
+   
+   # 数据集划分
+   python deal_with_datasets.py
+   
+   # 生成路径文件
+   python prepare.py
+   
+   # 测试自定义Dataset
+   python dataset.py
+   ```
+
+2. **激活函数学习**
+   ```bash
+   cd day3/activate_function
+   
+   # 运行激活函数可视化
+   python function.py
+   
+   # 查看TensorBoard可视化结果
+   tensorboard --logdir=sigmod_logs
+   ```
+
+3. **查看学习笔记**
+   ```bash
+   # 查看Day3完整学习笔记
+   cat day3/day3_notes.md
+   ```
+
 *更新时间: 2025年6月*
 
